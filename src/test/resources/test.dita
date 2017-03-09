@@ -118,7 +118,7 @@
     <body class="- topic/body ">
       <ul class="- topic/ul ">
         <li class="- topic/li ">
-          <xref class="- topic/xref " href="test.md">Markdown</xref>
+          <xref class="- topic/xref " href="test.md" format="markdown">Markdown</xref>
         </li>
         <li class="- topic/li ">
           <xref class="- topic/xref " href="test.dita">DITA</xref>
@@ -136,10 +136,10 @@
   <topic class="- topic/topic " id="keys">
     <title class="- topic/title ">Keys</title>
     <body class="- topic/body ">
-      <p class="- topic/p ">This is <xref class="- topic/xref " href="test.md">an example</xref> reference-style link.</p>
-      <p class="- topic/p ">This is <xref class="- topic/xref " href="test.md">key-a</xref> reference-style link.</p>
-      <p class="- topic/p ">This is <xref class="- topic/xref " href="test.md">Markdown</xref> reference-style link.</p>
-      <p class="- topic/p ">This is <xref class="- topic/xref " href="test.md">Markdown</xref> reference-style link.</p>
+      <p class="- topic/p ">This is <xref class="- topic/xref " href="test.md" format="markdown">an example</xref> reference-style link.</p>
+      <p class="- topic/p ">This is <xref class="- topic/xref " href="test.md" format="markdown">key-a</xref> reference-style link.</p>
+      <p class="- topic/p ">This is <xref class="- topic/xref " href="test.md" format="markdown">Markdown</xref> reference-style link.</p>
+      <p class="- topic/p ">This is <xref class="- topic/xref " href="test.md" format="markdown">Markdown</xref> reference-style link.</p>
       <p class="- topic/p ">This is <xref class="- topic/xref " keyref="key-missing">an example</xref> reference-style link.</p>
       <p class="- topic/p ">This is <xref class="- topic/xref " keyref="key-missing"/> reference-style link.</p>
     </body>
