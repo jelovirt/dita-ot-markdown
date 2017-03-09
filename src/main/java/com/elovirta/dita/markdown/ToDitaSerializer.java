@@ -911,6 +911,8 @@ public class ToDitaSerializer implements Visitor {
         switch (ext) {
             case ATTR_FORMAT_VALUE_DITA:
             case "xml":
+            	format = null;
+            	break;
                 // Markdown is converted to DITA
             case "md":
             case "markdown":
