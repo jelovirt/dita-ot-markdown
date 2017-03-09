@@ -914,7 +914,7 @@ public class ToDitaSerializer implements Visitor {
                 // Markdown is converted to DITA
             case "md":
             case "markdown":
-                format = null;
+                format = "markdown";
                 break;
             default:
                 format = !ext.isEmpty() ? ext : "html";
