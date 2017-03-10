@@ -13,8 +13,11 @@ import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.sax.SAXTransformerFactory;
 import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamSource;
+
+import java.io.BufferedInputStream;
 import java.io.CharArrayWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URI;
@@ -124,7 +127,11 @@ public class MarkdownReader implements XMLReader {
         final CharArrayWriter out = new CharArrayWriter();
         if (input.getByteStream() != null) {
             final String encoding = input.getEncoding() != null ? input.getEncoding() : "UTF-8";
-            final Reader in = new InputStreamReader(input.getByteStream(), encoding);
+            final InputStream is = 
+            		"UTF-8".equals(encoding)?
+            			consumeBOM(input.getByteStream()):
+            			input.getByteStream();
+            final Reader in = new InputStreamReader(is, encoding);
             try {
                 copy(in, out);
             } finally {
@@ -158,7 +165,31 @@ public class MarkdownReader implements XMLReader {
         return out.toCharArray();
     }
 
-    private void parseAST(final RootNode root) throws SAXException {
+    /**
+     * Returns an input stream that skips the BOM if present.
+     * 
+     * @param byteStream the original input stream
+     * @return An input stream without a possible BOM
+     * @throws IOException
+     */
+    private InputStream consumeBOM(InputStream in) throws IOException {
+		BufferedInputStream bin = new BufferedInputStream(in);
+		bin.mark(3);
+		try {
+		    int b0 = (byte)bin.read() & 0xFF;
+		    int b1 = (byte)bin.read() & 0xFF;
+		    int b2 = (byte)bin.read() & 0xFF;
+		    
+		    if (b0 != 0xEF || b1 != 0xBB || b2 != 0xBF) {
+		    	bin.reset();
+		    } // else we have the UTF-8 BOM and we just continue
+		} catch (IOException e) {
+			bin.reset();
+		}
+		return bin;
+	}
+
+	private void parseAST(final RootNode root) throws SAXException {
         final TransformerHandler h;
         try {
             h = tf.newTransformerHandler(t);
