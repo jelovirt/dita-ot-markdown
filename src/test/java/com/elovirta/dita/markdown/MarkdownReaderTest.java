@@ -190,13 +190,25 @@ public class MarkdownReaderTest {
         run("multiple_top_level_specialized.md");
     }
     
+    // BOM tests start
+    // We take the same sample, without and with BOM
+    
+    // without BOM
     @Test
     public void testNoBOM() throws Exception {
         run("testNoBOM.md");
     }
 
+    // with BOM
     @Test
     public void testBOM() throws Exception {
         run("testBOM.md");
+    }
+    
+    // We take a very short sample, 2 bytes, to check that consuming the BOM 
+    // does not cause any issues when the file is less than 3 bytes. 
+    @Test
+    public void testShort() throws Exception {
+        run("short.md");
     }
 }
