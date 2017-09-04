@@ -200,3 +200,25 @@ Apache License
    See the License for the specific language governing permissions and
    limitations under the License.
 
+----------------------------------------------------
+
+ASM 5 License
+  
+ASM 5 uses a 3-clause BSD license. For details, see licenses/asm-license.txt.
+
+------------------------------------------------------
+
+Parboiled 1.1.7 License
+
+Parboiled 1.1.7 uses an Apache 2.0 license. For details, see licenses/parboiled-license.txt
+
+--------------------------------------------------------
+
+Pegdown 1.6.0 License
+
+Pegdown 1.6.0 uses an Apache 2.0 license. For details, see licenses/pegdown-license.txt
+--------------------------------------------------------
+
+SnakeYAML 1.18 License
+
+SnakeYAML 1.18 uses an Apache 2.0 license. For details, see licenses/snakeyaml-license.txt
