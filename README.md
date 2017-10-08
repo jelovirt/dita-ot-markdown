@@ -1,3 +1,9 @@
+**Deprecation Note**
+
+This repository has been deprecated and all further development has been moved to https://github.com/jelovirt/com.elovirta.lwdita.
+
+---
+
 Lightweight DITA for DITA-OT
 ============================
 
